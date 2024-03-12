@@ -42,4 +42,16 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Check for random commit
+        id: random_commit
+        run: echo "SHOULD_COMMIT=$(( RANDOM % 2 ))" >> $GITHUB_ENV
 
+      - name: Push to GitHub
+        if: env.SHOULD_COMMIT == '1'
+        uses: EndBug/add-and-commit@v7.2.1
+        with:
+          branch: main
+          message: 'Generate Contribution Snake'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
