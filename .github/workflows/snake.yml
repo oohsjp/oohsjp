@@ -51,7 +51,7 @@ jobs:
         run: echo "SHOULD_COMMIT=$(( RANDOM % 2 ))" >> $GITHUB_ENV
 
       - name: Push to GitHub
-      #  if: env.SHOULD_COMMIT == '1'
+        if: env.SHOULD_COMMIT == '1'
         uses: EndBug/add-and-commit@v9
         with:
           message: Show GitHub Actions logo
