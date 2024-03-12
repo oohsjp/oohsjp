@@ -51,6 +51,6 @@ jobs:
       #  if: env.SHOULD_COMMIT == '1'
         uses: EndBug/add-and-commit@v9
         with:
-          message: Show GitHub logo
+          message: Show GitHub Actions logo
           committer_name: GitHub Actions
-          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+          committer_email: actions@github.com
